@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">TangoNativeAdSample</string>
+    <string name="load">Load</string>
+    <string name="open">Open</string>
+    <string-array name="cids">
+        <item>carousel_feed_placeholder</item>
+        <item>profile</item>
+        <item>tclist</item>
+        <item>carousel</item>
+        <item>carousel_tclist</item>
+        <item>carousel_feed</item>
+        <item>carousel_profile</item>
+        <item>discovery</item>
+        <item>discovery_video</item>
+        <item>discovery_card</item>
+        <item>inchat</item>
+        <item>social_hub</item>
+        <item>grid</item>
+        <item>roadriot</item>
+    </string-array>
+</resources>
