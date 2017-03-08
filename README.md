@@ -1,5 +1,12 @@
 # TangoAdSDK-Android
 
+## Table of Contents
+* [Prerequisites](##prerequisites)
+* [Installation](#installation)
+* [Native Ads](#native-ads)
+* [Ad Events](#ad-events)
+* [Sample App](#sample-app)
+
 ## Prerequisites
 
 ### Ad unit id 
@@ -7,6 +14,8 @@
 Ad unit id is a string that identify particular ad unit. Please use 'carousel_feed_placeholder' in testing app and contact [ads@tango.me](ads@tango.me) for the real ad unit id in production app. 
 
 ## Installation
+
+Please refer to [Tango Native Ad Sample](https://github.com/TangoSDK/TangoAdSDK-Android/tree/master/TangoNativeAdSample)
 
 ## Native Ads
 
@@ -26,16 +35,15 @@ A native ad include the following creatives:
 
 6. Star rating (optional): specifically for app install ads, represent the star rating of the app 
 
-
 ### Loading native ads
 
 Step 1. Create an instance of AdLoader and initialize it with an ad unit id. 
-```
+```java
 AdLoader loader = new AdLoader(adUnitId);
 ```
 
 Step 2. Implement AdLoader.Listener to handle events from AdLoader. 
-```
+```java
 @Override
 public void onSuccess(@NonNull Ad ad) {
   // This will be called when a native ad is loaded successfully. 
@@ -48,12 +56,12 @@ public void onError(@NonNull String errorText) {
 ```
 
 Step 3. Pass AdLoader.Listener and load an ad from server. 
-```
-loader.load(this);
+```java
+loader.load(adLoaderListener);
 ```
 
 Step 4. Implement Ad.LoadBitmapListener. 
-```
+```java
 void onLoadBitmapSuccess(@NonNull Bitmap var1) {
   // This will be called when an image is loaded successfully. 
 }
@@ -64,18 +72,18 @@ void onLoadBitmapError(@NonNull String var1) {
 ```
 
 Step 5. When a native ad is loaded successfully, pass LoadBitmapListener and load the icon and the main image. 
-```
+```java
 ad.loadIcon(loadBitmapListenerForIcon);
 ad.loadWideImage(loadBitmapListenerForImage);
 ```
 
 Step 6. Register view for interaction. An Ad.Listener may pass to handle ad events.  
-```
+```java
 ad.register(view, adListener);
 ```
 
 Step 7. Render the creatives of the native ad
-```
+```java
 ad.getTitle();
 ad.getSubtitle();
 ad.getCtaText();
