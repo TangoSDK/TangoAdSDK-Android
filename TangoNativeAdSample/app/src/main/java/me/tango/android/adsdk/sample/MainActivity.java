@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     RecyclerView.Adapter<RecyclerView.ViewHolder> adapter = null;
     if (!TextUtils.isEmpty(cid)) {
       final int items = random.nextInt(TITLES.length + 1) * (random.nextInt(50) + 50);
-      adapter = new LocalAdapter(items, new AdLoader(cid));
+      adapter = new LocalAdapter(items, new AdLoader(cid, null));
     }
     mRecyclerView.setAdapter(adapter);
   }
@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
         mLoading = true;
         mWideImageLoadListener = new WideImageLoadListener();
-        loader.load(this);
+        loader.load(itemView.getContext(), this);
       }
 
       // AdLoader.Listener
