@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
         mLoading = true;
         mWideImageLoadListener = new WideImageLoadListener();
-        loader.load(this);
+        loader.load(itemView.getContext(), this);
       }
 
       // AdLoader.Listener
