@@ -29,3 +29,18 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(path: ':adsdk')
 }
+
+task copyBinaries(type: Copy) {
+    println 'Copying binary files'
+    def toDir = rootProject.file('adsdk')
+    from (rootProject.file('../TangoAdSDK')) {
+        include 'adsdk.aar'
+    }
+    into toDir
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'assembleDebug' || task.name == 'assembleRelease') {
+        copyBinaries.execute()
+    }
+}
